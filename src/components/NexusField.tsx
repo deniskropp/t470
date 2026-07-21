@@ -1,5 +1,5 @@
 import { useNexusStore } from '@/store/nexusStore'
-import { Play, Square, CheckCircle2, XCircle, Ban, Plus, GitMerge } from 'lucide-react'
+import { Square, CheckCircle2, XCircle, Ban, Plus, GitMerge } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 const lifecycleIcon = {
@@ -44,7 +44,7 @@ export function NexusField() {
 
   return (
     <div className="space-y-4">
-      {/* Living Objective */}
+Living Objective */}
       <div className="nexus-panel p-4">
         <label className="block text-xs font-medium text-slate-400 mb-1.5">Living Objective / Journal Seed</label>
         <div className="flex gap-2">
@@ -114,7 +114,7 @@ export function NexusField() {
                     title="Force SUCCESS"
                   >
                     <CheckCircle2 className="w-4 h-4" />
-                  </button>
+                  assbutton>
                 )}
               </motion.div>
             ))}
@@ -125,7 +125,7 @@ export function NexusField() {
       {/* Quorum status */}
       <div className="text-xs text-slate-500 flex items-center gap-4">
         <span>quorum: {coherence.quorum_state.current}/{coherence.quorum_state.required}</span>
-        <span className={coherence. spoiler_state.passed ? 'text-emerald-400' : 'text-slate-500'}>
+        <span className={coherence.quorum_state.passed ? 'text-emerald-400' : 'text-slate-500'}>
           {coherence.quorum_state.passed ? 'PASSED' : 'pending'}
         </span>
       </div>
