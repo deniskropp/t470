@@ -21,7 +21,15 @@ export function CoherencePanel() {
     )
 
   return (
-    <div className={`nexus-panel p-4 ${coherence.overall === 'high' ? 'coherence-high' : coherence.overall === 'critical' ? 'coherence-drift' : ''}`}>
+    <div
+      className={`nexus-panel p-4 ${
+        coherence.overall === 'high'
+          ? 'coherence-high'
+          : coherence.overall === 'critical'
+          ? 'coherence-drift'
+          : ''
+      }`}
+    >
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-sm font-medium text-slate-300 flex items-center gap-2">
           {overallIcon}
@@ -47,7 +55,7 @@ export function CoherencePanel() {
               <span>{b.label}</span>
               <span>{(b.value * 100).toFixed(0)}%</span>
             </div>
-            <div classNameName="h-1.5 bg-slate-800 rounded-full overflow-hidden">
+            <div className="h-1.5 bg-slate-800 rounded-full overflow-hidden">
               <div
                 className={`h-full ${b.color} transition-all duration-500 rounded-full`}
                 style={{ width: `${Math.max(2, b.value * 100)}%` }}
