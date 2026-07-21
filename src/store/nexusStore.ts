@@ -173,7 +173,7 @@ export const useNexusStore = create<NexusState>()(
           },
         }))
         get().updateCoherence({
-          parallel_flux: Math.max(0, get().coherence.parallel__flux - 0.05),
+          parallel_flux: Math.max(0, get().coherence.parallel_flux - 0.05),
           swarm_valence: Math.min(1, get().coherence.swarm_valence + 0.05),
         })
       },
