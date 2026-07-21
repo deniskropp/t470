@@ -44,9 +44,11 @@ export function NexusField() {
 
   return (
     <div className="space-y-4">
-Living Objective */}
+      {/* Living Objective */}
       <div className="nexus-panel p-4">
-        <label className="block text-xs font-medium text-slate-400 mb-1.5">Living Objective / Journal Seed</label>
+        <label className="block text-xs font-medium text-slate-400 mb-1.5">
+          Living Objective / Journal Seed
+        </label>
         <div className="flex gap-2">
           <input
             type="text"
@@ -60,14 +62,26 @@ Living Objective */}
 
       {/* Controls */}
       <div className="flex flex-wrap gap-2">
-        <button onClick={handleQuickSpawn} className="btn-nexus flex items-center gap-2" disabled={!dimaFizz.active}>
+        <button
+          onClick={handleQuickSpawn}
+          className="btn-nexus flex items-center gap-2"
+          disabled={!dimaFizz.active}
+        >
           <Plus className="w-4 h-4" /> make_task + run
         </button>
-        <button onClick={handleJoin} className="btn-dima flex items-center gap-2" disabled={taskList.length < 1}>
+        <button
+          onClick={handleJoin}
+          className="btn-dima flex items-center gap-2"
+          disabled={taskList.length < 1}
+        >
           <GitMerge className="w-4 h-4" /> join (quorum)
         </button>
         <button
-          onClick={() => taskList.filter(t => t.lifecycle === 'RUNNING').forEach(t => cancelTask(t.id, 'User'))}
+          onClick={() =>
+            taskList
+              .filter((t) => t.lifecycle === 'RUNNING')
+              .forEach((t) => cancelTask(t.id, 'User'))
+          }
           className="btn-ghost flex items-center gap-2"
         >
           <Square className="w-4 h-4" /> cancel running
@@ -79,7 +93,8 @@ Living Objective */}
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-sm font-medium text-slate-300">parallel_f_v2 Field</h3>
           <span className="text-xs text-slate-500">
-            flux: {(coherence.parallel_flux * 100).toFixed(0)}% · valence_drift: {coherence.valence_drift.toFixed(2)}
+            flux: {(coherence.parallel_flux * 100).toFixed(0)}% · valence_drift:{' '}
+            {coherence.valence_drift.toFixed(2)}
           </span>
         </div>
 
@@ -106,7 +121,9 @@ Living Objective */}
                     <div className="text-xs text-slate-400 truncate">{task.description}</div>
                   )}
                 </div>
-                <span className="text-xs font-mono text-slate-500 uppercase">{task.lifecycle}</span>
+                <span className="text-xs font-mono text-slate-500 uppercase">
+                  {task.lifecycle}
+                </span>
                 {task.lifecycle === 'RUNNING' && (
                   <button
                     onClick={() => completeTask(task.id, { manual: true })}
@@ -114,7 +131,7 @@ Living Objective */}
                     title="Force SUCCESS"
                   >
                     <CheckCircle2 className="w-4 h-4" />
-                  assbutton>
+                  </button>
                 )}
               </motion.div>
             ))}
@@ -124,8 +141,14 @@ Living Objective */}
 
       {/* Quorum status */}
       <div className="text-xs text-slate-500 flex items-center gap-4">
-        <span>quorum: {coherence.quorum_state.current}/{coherence.quorum_state.required}</span>
-        <span className={coherence.quorum_state.passed ? 'text-emerald-400' : 'text-slate-500'}>
+        <span>
+          quorum: {coherence.quorum_state.current}/{coherence.quorum_state.required}
+        </span>
+        <span
+          className={
+            coherence.quorum_state.passed ? 'text-emerald-400' : 'text-slate-500'
+          }
+        >
           {coherence.quorum_state.passed ? 'PASSED' : 'pending'}
         </span>
       </div>
