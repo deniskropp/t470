@@ -1,7 +1,7 @@
 import { useNexusStore } from '@/store/nexusStore'
 import { DimaFizzPresence } from '@/components/DimaFizzPresence'
 import { NexusField } from '@/components/NexusField'
-import { CoherencePanel } from '@/components/Co incherencePanel'
+import { CoherencePanel } from '@/components/CoherencePanel'
 import { EmbodiedPipe } from '@/components/EmbodiedPipe'
 import { ConsentGate } from '@/components/ConsentGate'
 import {
