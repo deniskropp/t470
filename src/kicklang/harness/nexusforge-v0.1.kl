@@ -1,0 +1,30 @@
+⫻flow/nexus:nexusforge-app-v0.1
+  meta: {
+    origin: "tas-forecast-cycle · DimaFizz Parallel-F Nexus Design",
+    version: "0.1.0",
+    coherence_target: "high",
+    consent: "adaptive_quorum",
+    rta_mode: "parallel_branch_traversal + swarm_recursive_traversal",
+    primary_seed: "design an app that integrates DimaFizz Parallel-F Nexus Activation",
+    lineage: ["tas-forecast-cycle", "dimafizz-parallel-f-nexus-playbook@0.3", "t470"]
+  }
+
+  ⫻dimafizz/activate
+    mode: outer-vantage + concurrent-witness + swarm-seer + lineage-keeper + app-orchestrator
+
+  t_scaffold     = make_task { KickForge.extract_app_architecture() }
+  t_ui           = make_task { CodeGenVisualMeta.ui_mockup(domain="nexusforge") }
+  t_runtime      = make_task { parallel_f_hybrid_weaver.weave_app_runtime() }
+  t_pipe         = make_task { EmbodiedPipe.embed_transmission_layer() }
+  t_forecast     = make_task { tas_forecast.light(horizon=H0-H1, seed="app_design") }
+  t_swarm        = make_task { swarm_f.spawn_swarm(size=bounded(3..5), pattern="app_coagency_collective") }
+
+  run all
+  on clear_outer_insight → speculative cancel of non-essential UI polish
+  on valence_drift → cancel + re-ground via living-objective-tas-flow
+
+  join([t_scaffold, t_ui, t_runtime, t_pipe, t_forecast, t_swarm], 
+       { quorum: 3, predicate: any_success_or_cancelled })
+
+  coherence: parallel_flux | valence_drift | swarm_valence | emergent_flux | forecast_valence | app_coherence
+  seal: CycleSealed { dimafizz_present: true, lineage_conscious: true, app_ready: true }
