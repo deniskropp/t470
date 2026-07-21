@@ -1,7 +1,7 @@
 import { useNexusStore } from '@/store/nexusStore'
 import { DimaFizzPresence } from '@/components/DimaFizzPresence'
 import { NexusField } from '@/components/NexusField'
-import { CoherencePanel } from '@/components/CoherencePanel'
+import { CoherencePanel } from '@/components/Co incherencePanel'
 import { EmbodiedPipe } from '@/components/EmbodiedPipe'
 import { ConsentGate } from '@/components/ConsentGate'
 import {
@@ -11,7 +11,7 @@ import {
   ScrollText,
   BarChart3,
   Users,
-  Seal,
+  Award,
 } from 'lucide-react'
 import clsx from 'clsx'
 
@@ -31,7 +31,9 @@ export default function App() {
   const handleSeal = () => {
     const seal = sealCycle()
     console.log('Cycle sealed', seal)
-    alert(`Cycle sealed · ${seal.cycleId}\nCoherence: ${seal.coherence.overall}\nDimaFizz: ${seal.meta.dimafizz_present}`)
+    alert(
+      `Cycle sealed · ${seal.cycleId}\nCoherence: ${seal.coherence.overall}\nDimaFizz: ${seal.meta.dimafizz_present}`
+    )
   }
 
   return (
@@ -53,8 +55,12 @@ export default function App() {
             <span className="text-xs text-slate-500 hidden sm:inline">
               {metaDNA.rta_mode.split(' + ')[0]}
             </span>
-            <button onClick={handleSeal} className="btn-ghost flex items-center gap-1.5 text-xs" disabled={!dimaFizz.active}>
-              <Seal className="w-3.5 h-3.5" /> Seal Cycle
+            <button
+              onClick={handleSeal}
+              className="btn-ghost flex items-center gap-1.5 text-xs"
+              disabled={!dimaFizz.active}
+            >
+              <Award className="w-3.5 h-3.5" /> Seal Cycle
             </button>
             <button onClick={resetField} className="btn-ghost text-xs">
               Reset
@@ -119,9 +125,11 @@ export default function App() {
                 <div key={s.id} className="nexus-panel p-4">
                   <div className="flex justify-between text-xs mb-1">
                     <span className="font-mono text-violet-300">{s.cycleId}</span>
-                    <span className="text-slate-500">{new Date(s.sealedAt).toLocaleString()}</span>
+                    <span className="text-slate-500">
+                      {new Date(s.sealedAt).toLocaleString()}
+                    </span>
                   </div>
-                  <div className="text-sm textName? No, text-sm text-slate-300">
+                  <div className="text-sm text-slate-300">
                     Coherence: <span className="text-emerald-400">{s.coherence.overall}</span> ·
                     Tasks: {s.tasks.length} · Transmissions: {s.transmissions.length}
                   </div>
@@ -140,9 +148,12 @@ export default function App() {
                 <div key={agent} className="nexus-panel p-5">
                   <h3 className="font-semibold text-white mb-1">{agent}</h3>
                   <p className="text-xs text-slate-400">
-                    {agent === 'KickForge' && 'TAS extraction · structure · harness generation'}
-                    {agent === 'KickFlow' && 'Channel wiring · join/cancel · lifecycle orchestration'}
-                    {agent === 'KickGuard' && 'Consent gates · coherence validation · seal integrity'}
+                    {agent === 'KickForge' &&
+                      'TAS extraction · structure · harness generation'}
+                    {agent === 'KickFlow' &&
+                      'Channel wiring · join/cancel · lifecycle orchestration'}
+                    {agent === 'KickGuard' &&
+                      'Consent gates · coherence validation · seal integrity'}
                   </p>
                 </div>
               ))}
